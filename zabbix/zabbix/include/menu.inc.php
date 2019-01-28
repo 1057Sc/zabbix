@@ -298,7 +298,8 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
                                 ]*/
             ]
         ],
-        'bigData' => [
+        //隐藏日志菜单
+/*        'bigData' => [
             'label' => _('统一日志'),
             'user_type' => USER_TYPE_SUPER_ADMIN,
             'default_page_id' => 0,
@@ -309,7 +310,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 	                'label' => _('统一日志')
 	            ]
 	        ]
-	    ],
+	    ],*/
 		'login' => [
 			'label' => _('Login'),
 			'user_type' => 0,
