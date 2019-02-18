@@ -66,7 +66,7 @@ else {
 			->setArgument('fullscreen', $data['fullscreen'] ? '1' : null)
 			->setArgumentSID();
 	}
-
+    //这个为修改 http://zabbix-server/zabbix/zabbix.php?action=dashboard.view 界面中右上角菜单的地方
 	(new CWidget())
 		->setTitle($data['dashboard']['name'])
 		->setControls((new CForm('get'))
@@ -82,7 +82,7 @@ else {
 				 * new list, when clicked.
 				 */
 				->addItem((new CButton('dashbrd-edit', _('Edit dashboard')))->setEnabled($data['dashboard']['editable']))
-				->addItem((new CButton(SPACE))
+				/*->addItem((new CButton(SPACE))
 					->addClass(ZBX_STYLE_BTN_ACTION)
 					->setId('dashbrd-actions')
 					->setTitle(_('Actions'))
@@ -116,7 +116,7 @@ else {
 							]
 						]
 					])
-				)
+				)*/
 				->addItem(get_icon('fullscreen', ['fullscreen' => $data['fullscreen']]))
 			)
 		)
