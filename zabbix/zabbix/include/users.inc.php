@@ -166,6 +166,44 @@ function getUserFullname($userData) {
 	return zbx_empty($fullname) ? $userData['alias'] : $userData['alias'].' ('.$fullname.')';
 }
 
+//显示中文名的思路，根据用户名查询库中的真实名称咯。
+function getrealUsername($userName){
+    if($userName=='Admin'){
+        $userName='admin';
+    }
+    $servername = "localhost";
+    $username = "root";
+    $password = "123456";
+    $database = "portaldb";
+    //$userName = "admin";
+// 创建连接
+    $conn = @mysqli_connect($servername, $username, $password,$database);
+
+// 检测连接
+    /*    if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "连接成功";*/
+    $query = sprintf("select user_real_name from sys_user where user_name = '%s'",$userName);
+    //echo $query;
+    mysqli_set_charset($conn, "utf8");
+    $result = mysqli_query($conn,$query);
+    mysqli_close($conn);
+    if ($result->num_rows > 0) {
+        // 输出数据
+        while($row = $result->fetch_assoc()) {
+            //echo "id: " . $row["user_real_name"];
+            return $row["user_real_name"];
+        }
+    } else {
+        echo "0";
+    }
+}
+
+function getDemo(){
+    return "demo1";
+}
+
 function getUsername($userData) {
     if (!zbx_empty($userData['surname'])) {
         if (!zbx_empty($userData['name'])) {

@@ -103,7 +103,7 @@ var PageRefresh = {
 
 function moveSubMenu(){
 	//alert("12312")
-    var lef = 240;
+    var lef = 170;
     jQuery("#mmenu .top-nav li").each(function(i){
         var o = jQuery(this);
         if(o.hasClass("selected")){
@@ -137,7 +137,7 @@ function testDis(){
  * Main menu
  */
 var MMenu = {
-	menus:			{'view': 0, 'cm': 0, 'reports': 0, 'config': 0, 'admin': 0, 'bigData':0},
+	menus:			{'view': 0, 'cm': 0, 'reports': 0, 'config': 0, 'admin': 0, 'bigData':0},//此处为一级菜单定义
 	def_label:		null,
 	sub_active: 	false,
 	timeout_reset:	null,
